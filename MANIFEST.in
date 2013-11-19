@@ -1,0 +1,4 @@
+include LICENSE README.md
+recursive-include photos *.html
+recursive-include photos *.json
+recursive-include docs *.txt
