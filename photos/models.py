@@ -8,6 +8,11 @@ supports_articles = 'articles' in settings.INSTALLED_APPS
 
 
 class Gallery(BaseContentModel):
+    """
+    Allows for Gallery creation.
+    If you get a "413 Entity Too Large" error when bulk uploading, adjust the Nginx configuration. 
+
+    """
     credit = models.CharField(max_length=200, blank=True)
     published = models.BooleanField(default=True)
     
@@ -36,4 +41,4 @@ class Gallery(BaseContentModel):
 
 
 class GalleryImage(ContentImage):
-    gallery  = models.ForeignKey(Gallery)
+    gallery = models.ForeignKey(Gallery)
