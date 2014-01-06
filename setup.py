@@ -7,7 +7,7 @@ with open('docs/requirements.txt') as f:
 
 setup(
     name='tango-photos',
-    version='0.2',
+    version='0.2.1',
     author=u'Tim Baxter',
     author_email='mail.baxter@gmail.com',
     url='http://github.com/tBaxter/tango-photos',
@@ -17,6 +17,5 @@ setup(
     packages=find_packages(),
     install_requires=required,
     zip_safe=False,
-    include_package_data=True,
-    dependency_links = ['http://github.com/tBaxter/tango-shared-core/tarball/master#egg=tango-shared-0.5']
+    include_package_data=True
 )

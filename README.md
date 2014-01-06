@@ -6,10 +6,13 @@ Tango-Photos is a reusable app for photo galleries in Django. While it forms a k
 
 ##Installation:
 
+    pip install tango-photos 
+
+or
+
     pip install git+https://github.com/tBaxter/tango-photos.git
 
 tango_shared is a dependency. It will be installed. 
 
 ## Usage:
 Add 'photos' and 'tango_shared' to your installed apps, then run syncdb or migrate.
-
