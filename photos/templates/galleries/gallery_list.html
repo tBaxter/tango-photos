@@ -7,7 +7,7 @@
 
 {% block content %}
   <h1>Photo Galleries</h1>
-  <ul class="multi-col three-col">
+  <ul class="columned">
     {% for gal in gallery_list|dictsort:"created" %}
       <li>
         <a href="{{ gal.get_absolute_url }}">
