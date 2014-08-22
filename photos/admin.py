@@ -34,12 +34,6 @@ class GalleryInline(admin.TabularInline):
 class GalleryAdmin(admin.ModelAdmin):
     form = GalleryForm
 
-    class Media:
-        js = (
-            '/static/admin/js/jquery-ui-1.10.3.custom-sortable.min.js',
-            '/static/admin/js/inline_reorder.js',
-        )
-
     ordering = ['-created']
     actions = [make_published, make_unpublished]
 

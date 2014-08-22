@@ -5,7 +5,7 @@ from django.db import models
 
 
 RESTRICT_CONTENT_TO_SITE = getattr(settings, 'RESTRICT_CONTENT_TO_SITE', False)
-now = datetime.datetime.now()
+now = datetime.datetime.utcnow()
 
 
 class GalleryManager(models.Manager):
@@ -16,8 +16,8 @@ class GalleryManager(models.Manager):
 
     Usage is simply gallery.objects.all()
     """
-    def get_query_set(self):
-        galleries = super(GalleryManager, self).get_query_set()
+    def get_queryset(self):
+        galleries = super(GalleryManager, self).get_queryset()
         if RESTRICT_CONTENT_TO_SITE:
             galleries.filter(sites__id__exact=settings.SITE_ID)
         return galleries
@@ -31,7 +31,7 @@ class PublishedGalleryManager(GalleryManager):
 
     Usage is gallery.published.all()
     """
-    def get_query_set(self):
-        galleries = super(PublishedGalleryManager, self).get_query_set()
+    def get_queryset(self):
+        galleries = super(PublishedGalleryManager, self).get_queryset()
         galleries.filter(published=True, created__lte=now)
         return galleries
