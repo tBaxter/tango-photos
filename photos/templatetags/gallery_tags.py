@@ -6,7 +6,7 @@ from photos.models import Gallery
 register = template.Library()
 
 
-@register.assignment_tag()
+@register.simple_tag()
 def get_galleries(count=5):
     """
     Returns one or more galleries based on num as an object_list.

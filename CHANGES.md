@@ -1,5 +1,8 @@
 # Tango-Photos change log
 
+## 0.4.2
+* Removed deprecated assignment_tag
+
 ## 0.4.0
 * Updated for Django 2.0 compatibility
 
