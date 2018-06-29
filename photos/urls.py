@@ -1,25 +1,17 @@
-from django.conf.urls import url, patterns
+from django.urls import path
 from django.views.generic import DetailView, ListView
 
 from .models import Gallery
 
-urlpatterns = patterns(
-    '',
-    url(
-        name="gallery_list",
-        regex='^$',
-        view=ListView.as_view(
-            queryset=Gallery.objects.filter(published=True),
-            template_name="galleries/gallery_list.html"
-        )
+urlpatterns = [
+    path('', ListView, 
+    name="gallery_list"
     ),
-    url(
-        name="gallery_detail",
-        regex=r'^(?P<slug>[-\w]+)/$',
-        view=DetailView.as_view(
-            queryset=Gallery.objects.all(),
-            slug_field='slug',
-            template_name="galleries/gallery_detail.html"
-        )
+    path('<slug:slug>/', DetailView,
+        {
+            'queryset': Gallery.published_objects.all(),
+            'template_name': "galleries/gallery_detail.html"
+        },
+        name="gallery_detail"
     ),
-)
+]
