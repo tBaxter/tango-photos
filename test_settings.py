@@ -8,6 +8,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
 
     'tango_shared',
+    # from tango_shared reqs
+    'voting',
     'easy_thumbnails',
 )
 
