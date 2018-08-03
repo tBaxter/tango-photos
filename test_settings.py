@@ -11,6 +11,7 @@ INSTALLED_APPS = (
     # from tango_shared reqs
     'voting',
     'easy_thumbnails',
+    'photos'
 )
 
 DATABASES = {
