@@ -1,1 +1,1 @@
-tango-shared-core>=1.3.0
+tango-shared-core>=1.4.0
