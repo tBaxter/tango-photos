@@ -26,7 +26,7 @@ class Gallery(BaseContentModel):
         )
 
     # Managers
-    objects   = GalleryManager()
+    objects = GalleryManager()
     published_objects = PublishedGalleryManager()
 
     class Meta:
@@ -36,7 +36,7 @@ class Gallery(BaseContentModel):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('gallery_detail', [self.slug])
+        return reverse('gallery_detail', self.slug)
 
     def get_image(self):
         try:
