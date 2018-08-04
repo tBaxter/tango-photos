@@ -28,7 +28,8 @@ SITE_ID = 1
 
 PAGINATE_BY = 20
 
-#stripped down middleware
+USE_TZ = True
+
 MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
