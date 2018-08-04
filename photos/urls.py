@@ -7,11 +7,12 @@ urlpatterns = [
     path('', ListView, 
     name="gallery_list"
     ),
-    path('<slug:slug>/', DetailView,
-        {
-            'queryset': Gallery.published_objects.all(),
-            'template_name': "galleries/gallery_detail.html"
-        },
+    path(
+        '<slug:slug>/', 
+        DetailView.as_view(
+            queryset=Gallery.published_objects.all(),
+            template_name="galleries/gallery_detail.html"
+        ),
         name="gallery_detail"
     ),
 ]
