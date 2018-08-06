@@ -20,7 +20,7 @@ class TestGalleries(TestCase):
         response = self.client.get(reverse('gallery_list'))
         self.assertEqual(response.status_code, 200)
         self.assertTrue('object_list' in response.context)
-        self.assertTemplateUsed('galleries/gallery_list.html')
+        self.assertTemplateUsed('photos/gallery_list.html')
 
     def test_gallery_detail(self):
         """
@@ -30,11 +30,11 @@ class TestGalleries(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTrue('object' in response.context)
         self.assertEquals(self.gallery.id, response.context['object'].id)
-        self.assertTemplateUsed('galleries/gallery_detail.html')
+        self.assertTemplateUsed('photos/gallery_detail.html')
 
     def test_gallery_model(self):
         self.assertTrue(self.gallery.has_image)
-        self.assertEqual(self.gallery.get_image().url, self.galleryImage.image.url)
+        self.assertEqual(self.gallery.get_image().image.url, self.galleryImage.image.url)
         self.gallery.galleryimage_set.all().delete()
         self.assertEquals(self.gallery.get_image(), None)
 
