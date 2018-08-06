@@ -11,7 +11,7 @@ urlpatterns = [
         '<slug:slug>/', 
         DetailView.as_view(
             queryset=galleries,
-            template_name="galleries/gallery_detail.html"
+            template_name="photos/gallery_detail.html"
         ),
         name="gallery_detail"
     ),
