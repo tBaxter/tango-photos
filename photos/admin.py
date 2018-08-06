@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .forms import GalleryForm
-from .models import Gallery, GalleryImage, supports_articles
+from .models import Gallery, GalleryImage
 
 
 ##### Actions
@@ -46,15 +46,9 @@ class GalleryAdmin(admin.ModelAdmin):
         #BulkUploadInline,
         GalleryInline,
     ]
-    content = ('Content', {'fields': ('summary', 'bulk_upload')})
-
-    if supports_articles:
-        list_filter.append('article')
-        content = ('Content', {'fields': ('summary', 'article', 'bulk_upload')})
-
     fieldsets = (
         ('Header', {'fields': ('overline', 'title')}),
-        content,
+        ('Content', {'fields': ('summary', 'bulk_upload')}),
         ('Meta', {'fields': ('credit', 'published')}),
         ('Admin fields', {
             'description': 'You should rarely, if ever, need to touch these fields.',
