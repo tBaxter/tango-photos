@@ -1,11 +1,8 @@
-from django.conf import settings
 from django.db import models
 from django.urls import reverse
 
 from .managers import GalleryManager, PublishedGalleryManager
 from tango_shared.models import ContentImage, BaseContentModel
-
-supports_articles = 'articles' in settings.INSTALLED_APPS
 
 
 class Gallery(BaseContentModel):
@@ -16,14 +13,6 @@ class Gallery(BaseContentModel):
     """
     credit = models.CharField(max_length=200, blank=True)
     published = models.BooleanField(default=True)
-    
-    if supports_articles:
-        article = models.ForeignKey(
-            'articles.Article',
-            on_delete=models.CASCADE,
-            blank=True,
-            null=True
-        )
 
     # Managers
     objects = GalleryManager()
