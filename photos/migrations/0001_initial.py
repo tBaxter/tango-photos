@@ -6,14 +6,19 @@ import easy_thumbnails.fields
 import tango_shared.models
 
 
+dependency_list = [
+    ('sites', '0002_alter_domain_unique'),
+]
+
+if 'articles' in settings.INSTALLED_APPS:
+    dependency_list.append(('articles', '0001_initial'))
+
+
 class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-        ('sites', '0002_alter_domain_unique'),
-        #('articles', '0001_initial'),
-    ]
+    dependencies = dependency_list
 
     operations = [
         migrations.CreateModel(
@@ -33,7 +38,6 @@ class Migration(migrations.Migration):
                 ('has_image', models.BooleanField(default=False, editable=False, max_length=200)),
                 ('credit', models.CharField(blank=True, max_length=200)),
                 ('published', models.BooleanField(default=True)),
-                ('article', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='articles.Article')),
                 ('sites', models.ManyToManyField(default=[1], to='sites.Site')),
             ],
             options={
@@ -59,3 +63,17 @@ class Migration(migrations.Migration):
             },
         ),
     ]
+
+    if 'articles' in settings.INSTALLED_APPS:
+        operations.append(
+            migrations.AddField(
+                model_name='galleryImage',
+                name='article',
+                field=models.ForeignKey(
+                    blank=True, 
+                    null=True, 
+                    on_delete=django.db.models.deletion.CASCADE, 
+                    to='articles.Article'
+                )
+            )
+        )
