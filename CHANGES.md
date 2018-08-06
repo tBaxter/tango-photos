@@ -1,5 +1,13 @@
 # Tango-Photos change log
 
+## 0.5.0
+* Django 2.0 and Python 3.x compatible
+* Added and Updated tests
+* Removed typogrify as a requirement
+* Updated template names and paths
+* URL fixes
+* Added Travis CI integration
+
 ## 0.4.2
 * Removed deprecated assignment_tag
 

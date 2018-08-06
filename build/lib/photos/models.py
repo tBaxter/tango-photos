@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.urls import reverse
 
 from .managers import GalleryManager, PublishedGalleryManager
 from tango_shared.models import ContentImage, BaseContentModel
@@ -25,18 +26,17 @@ class Gallery(BaseContentModel):
         )
 
     # Managers
-    objects   = GalleryManager()
+    objects = GalleryManager()
     published_objects = PublishedGalleryManager()
 
     class Meta:
         verbose_name_plural = "galleries"
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
-    @models.permalink
     def get_absolute_url(self):
-        return ('gallery_detail', [self.slug])
+        return reverse('gallery_detail', args=[self.slug])
 
     def get_image(self):
         try:

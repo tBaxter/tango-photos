@@ -16,7 +16,7 @@ def get_galleries(count=5):
     return Gallery.published.all()[:count]
 
 
-@register.inclusion_tag('galleries/includes/related_galleries.html')
+@register.inclusion_tag('photos/includes/related_galleries.html')
 def get_related_galleries(gallery, count=5):
     """
     Gets latest related galleries from same section as originating gallery.
