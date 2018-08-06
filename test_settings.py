@@ -12,8 +12,7 @@ INSTALLED_APPS = (
     'voting',
     'easy_thumbnails',
     'photos',
-    'articles',
-    'typogrify'
+    'articles'
 )
 
 DATABASES = {
