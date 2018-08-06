@@ -33,5 +33,5 @@ class PublishedGalleryManager(GalleryManager):
     """
     def get_queryset(self):
         galleries = super(PublishedGalleryManager, self).get_queryset()
-        galleries.filter(published=True, created__lte=now)
+        galleries = galleries.filter(published=True, created__lte=now)
         return galleries

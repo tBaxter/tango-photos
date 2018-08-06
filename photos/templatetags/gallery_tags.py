@@ -13,7 +13,7 @@ def get_galleries(count=5):
     Usage:
     {% get_galleries <NUM> as galleries %}
     """
-    return Gallery.published[:count]
+    return Gallery.published.all()[:count]
 
 
 @register.inclusion_tag('photos/includes/related_galleries.html')
