@@ -36,7 +36,7 @@ class Gallery(BaseContentModel):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('gallery_detail', slug=self.slug)
+        return reverse('gallery_detail', args=[self.slug])
 
     def get_image(self):
         try:
