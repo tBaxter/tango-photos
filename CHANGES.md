@@ -1,5 +1,10 @@
 # Tango-Photos change log
 
+## 0.5.1
+* Loosened dependency on article
+* Removed redundant FK to articles
+* Cleared Travis CI failure with Python 3.5
+
 ## 0.5.0
 * Django 2.0 and Python 3.x compatible
 * Added and Updated tests
